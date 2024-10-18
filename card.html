@@ -1,0 +1,345 @@
+<!-- Colour palette tool https://imagecolorpicker.com/en/user/shared-palette?id=ed2a1d3e-acb7-4e53-83ac-ebe5975ff303 -->
+
+<html lang="en">
+
+<head>
+  <title>Captain's Card</title>
+  <style>
+    @font-face {
+      font-family: "Antonio";
+      src: url("./fonts/Antonio/Antonio-VariableFont_wght.ttf"), format("ttf");
+    }
+
+    /* General styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Antonio";
+      font-size: 18px;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #1a202c;
+      color: black;
+      font-weight: bold;
+    }
+
+    .card-container {
+      position: relative;
+      width: 420px;
+      height: 300px;
+      background-color: black;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Circle styling */
+    .circle {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 48px;
+      height: 48px;
+      background-color: black;
+      border: 2px solid #9ab5bd;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px black;
+      background-image: url("./img/faction-federation.png");
+      background-size: contain;
+    }
+
+    .skill-text {
+      font-size: 11px;
+      padding-left: 4px;
+      text-transform: uppercase;
+    }
+
+    /* Name Input Section */
+    .name-input-section {
+      margin-top: 2px;
+      padding-left: 12px;
+      display: table;
+      width: 100%;
+    }
+
+    .name-label {
+      width: 100px;
+      height: 30px;
+      background-color: #9ab5bd;
+      text-align: right;
+      padding-right: 6px;
+      display: table-cell;
+      vertical-align: middle;
+      color: black;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .name-label p {
+      font-size: 10px;
+      line-height: 1.2;
+      margin: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .name-input {
+      width: 100%;
+      height: 30px;
+      border: 2px solid black;
+      border-top: 0;
+      border-bottom: 0;
+      display: table-cell;
+      background-color: white;
+      vertical-align: middle;
+    }
+
+    .name-end {
+      width: 19px;
+      height: 30px;
+      /* background-color: #4a5568; */
+      display: table-cell;
+      border-radius: 0 9999px 9999px 0;
+    }
+
+    /* Table rows */
+    .rows-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1px;
+    }
+
+    .rows-table tr {
+      height: 35px;
+    }
+
+    .rows-table td {
+      height: 35px;
+      width: 20px;
+      border: 2px solid black;
+      text-align: center;
+    }
+
+    .underscored {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    .rows-table td:last-child {
+      border-radius: 0 100vmax 100vmax 0;
+    }
+
+    tr td {
+      background-color: white;
+    }
+
+    .orange-box {
+      background-color: #fda449;
+
+    }
+
+    .grey-box {
+      background-color: #9ab5bd;
+    }
+
+    .skill-table tbody tr td[rowspan] {
+      width: 35px;
+      border-radius: 0 0 0 160px;
+    }
+
+    .rows-table .orange-line td {
+      background-color: #fda449;
+      height: 8px;
+    }
+
+    .rows-table tr.orange-line {
+      height: 8px;
+    }
+
+    .reputation-table {
+      table-layout: fixed;
+    }
+
+    .reputation-table td:first-child {
+      border-radius: 100vmax 0 0 100vmax;
+    }
+
+    .crew-blue {
+      background-color: #86def7;
+      width: 50px
+    }
+
+    .weapon-red {
+      background-color: #fd7989;
+      width: 50px
+    }
+
+    .tech-purple {
+      background-color: #8a92c9;
+      width: 50px
+    }
+
+    .reputation-table img {
+      max-width: 100%;
+      max-height: 100%;
+      vertical-align: middle;
+      padding: 2px;
+    }
+
+    .skill-table img {
+      max-width: 100%;
+      max-height: 100%;
+      vertical-align: middle;
+      padding: 2px;
+    }
+
+    .skill-table .orange-box img {
+      margin-left: 12px;
+    }
+
+    .orange-box span {
+      position: absolute;
+    }
+
+    td.talent-slot {
+      text-align: left;
+      padding-left: 1px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card-container">
+    <!-- Black circle with grey border -->
+    <div class="circle"></div>
+
+    <!-- Name Input Section -->
+    <div class="name-input-section">
+      <div class="name-label">
+        <p>captain<br />name</p>
+      </div>
+      <input type="text" class="name-input" />
+      <div class="name-end grey-box"></div>
+    </div>
+
+    <!-- Rows as a table -->
+    <table class="rows-table skill-table">
+      <!-- Top row -->
+      <tr>
+        <td class="orange-box skill-text" rowspan="4">skill</td>
+        <td></td>
+        <td class="orange-box talent-slot" colspan="3"><span>+</span><img
+            src="./img/upgrade_elite_talent_transparent.png"></td>
+        <td></td>
+        <td></td>
+        <td class="orange-box talent-slot" colspan="4"><span>+</span><img
+            src="./img/upgrade_elite_talent_transparent.png"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="orange-box talent-slot" colspan="2"><span>+</span><img
+            src="./img/upgrade_elite_talent_transparent.png"></td>
+      </tr>
+
+      <!-- Middle row -->
+      <tr>
+        <td>2</td>
+        <td>2</td>
+        <td class="underscored">3</td>
+        <td>3</td>
+        <td>4</td>
+        <td>4</td>
+        <td>5</td>
+        <td>5</td>
+        <td class="underscored">6</td>
+        <td>6</td>
+        <td>7</td>
+        <td>7</td>
+        <td>8</td>
+        <td>8</td>
+        <td class="orange-box">9</td>
+      </tr>
+
+      <!-- Bottom row -->
+      <tr>
+        <td class="grey-box"></td>
+        <td colspan="6">
+          + <img src="./img/upgrade_crew_transparent.png">/
+          <img src="./img/upgrade_weapon_transparent.png">/
+          <img src="./img/upgrade_tech_transparent.png">
+        </td>
+        <td class="grey-box"></td>
+        <td colspan="6">
+          + <img src="./img/upgrade_crew_transparent.png">/
+          <img src="./img/upgrade_weapon_transparent.png">/
+          <img src="./img/upgrade_tech_transparent.png">
+        </td>
+        <td class="grey-box"></td>
+      </tr>
+      <tr class="orange-line">
+        <td colspan="15"></td>
+      </tr>
+    </table>
+    <table class="rows-table reputation-table">
+      <tr>
+        <td class="crew-blue">
+          <img src="./img/upgrade_crew_transparent.png">
+        </td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="crew-blue">10</td>
+      </tr>
+      <tr>
+        <td class="weapon-red">
+          <img src="./img/upgrade_weapon_transparent.png">
+        </td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="weapon-red">10</td>
+      </tr>
+      <tr>
+        <td class="tech-purple">
+          <img src="./img/upgrade_tech_transparent.png">
+        </td>
+        <td>0</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+        <td class="tech-purple">10</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
