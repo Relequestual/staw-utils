@@ -5,215 +5,219 @@
 <head>
   <title>Captain's Card</title>
   <style>
-    @font-face {
-      font-family: "Antonio";
-      src: url("./fonts/Antonio/Antonio-VariableFont_wght.ttf"), format("ttf");
-    }
 
-    /* General styling */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Antonio";
-      font-size: 18px;
-    }
+  @font-face {
+    font-family: "Antonio";
+    src: url("./fonts/Antonio/Antonio-VariableFont_wght.ttf"), format("ttf");
+  }
 
-    body {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #1a202c;
-      color: black;
-      font-weight: bold;
-    }
+  /* Variables */
+:root {
+  --font-family: "Antonio", sans-serif;
+  --font-size-base: 18px;
+  --color-background: #1a202c;
+  --color-text: #000000;
+  --color-grey: #9ab5bd;
+  --color-orange: #fda449;
+  --color-crew: #86def7;
+  --color-weapon: #fd7989;
+  --color-tech: #8a92c9;
+  --color-white: #ffffff;
+}
 
-    .card-container {
-      position: relative;
-      width: 420px;
-      height: 300px;
-      background-color: black;
-      padding: 16px;
-      border-radius: 12px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    }
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    /* Circle styling */
-    .circle {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 48px;
-      height: 48px;
-      background-color: black;
-      border: 2px solid #9ab5bd;
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px black;
-      background-image: url("./img/faction-federation.png");
-      background-size: contain;
-    }
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: bold;
+}
 
-    .skill-text {
-      font-size: 11px;
-      padding-left: 4px;
-      text-transform: uppercase;
-    }
+/* Card container */
+.card-container {
+  position: relative;
+  width: 420px;
+  height: 300px;
+  background-color: var(--color-text);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
 
-    /* Name Input Section */
-    .name-input-section {
-      margin-top: 2px;
-      padding-left: 12px;
-      display: table;
-      width: 100%;
-    }
+/* Circle styling */
+.circle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 48px;
+  height: 48px;
+  background: var(--color-text) url("./img/faction-federation.png") no-repeat center/contain;
+  border: 2px solid var(--color-grey);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--color-text);
+}
 
-    .name-label {
-      width: 100px;
-      height: 30px;
-      background-color: #9ab5bd;
-      text-align: right;
-      padding-right: 6px;
-      display: table-cell;
-      vertical-align: middle;
-      color: black;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
+/* Name input section */
+.name-input-section {
+  margin-top: 2px;
+  padding-left: 12px;
+  display: flex;
+  width: 100%;
+}
 
-    .name-label p {
-      font-size: 10px;
-      line-height: 1.2;
-      margin: 0;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-    }
+.name-label, .name-input, .name-end {
+  height: 30px;
+}
 
-    .name-input {
-      width: 100%;
-      height: 30px;
-      border: 2px solid black;
-      border-top: 0;
-      border-bottom: 0;
-      display: table-cell;
-      background-color: white;
-      vertical-align: middle;
-    }
+.name-label {
+  width: 100px;
+  background-color: var(--color-grey);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 6px;
+  color: var(--color-text);
+}
 
-    .name-end {
-      width: 19px;
-      height: 30px;
-      /* background-color: #4a5568; */
-      display: table-cell;
-      border-radius: 0 9999px 9999px 0;
-    }
+.name-label p {
+  font-size: 10px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: right;
+}
 
-    /* Table rows */
-    .rows-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1px;
-    }
+.name-input {
+  flex-grow: 1;
+  border: 2px solid var(--color-text);
+  border-top: 0;
+  border-bottom: 0;
+  background-color: var(--color-white);
+}
 
-    .rows-table tr {
-      height: 35px;
-    }
+.name-end {
+  width: 19px;
+  border-radius: 0 9999px 9999px 0;
+}
 
-    .rows-table td {
-      height: 35px;
-      width: 20px;
-      border: 2px solid black;
-      text-align: center;
-    }
+/* Table styles */
+.rows-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1px;
+}
 
-    .underscored {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-    }
+.rows-table tr {
+  height: 35px;
+}
 
-    .rows-table td:last-child {
-      border-radius: 0 100vmax 100vmax 0;
-    }
+.rows-table td {
+  height: 35px;
+  width: 20px;
+  border: 2px solid var(--color-text);
+  text-align: center;
+  background-color: var(--color-white);
+}
 
-    tr td {
-      background-color: white;
-    }
+.rows-table td:last-child {
+  border-radius: 0 100vmax 100vmax 0;
+}
 
-    .orange-box {
-      background-color: #fda449;
+/* Utility classes */
+.rows-table td.skill-text {
+  font-size: 11px;
+  padding-left: 4px;
+  text-transform: uppercase;
+  background-color: var(--color-orange);
+  color: var(--color-text);
+}
 
-    }
+/* Specific table styles */
+.skill-table tbody tr td[rowspan] {
+  width: 35px;
+  border-radius: 0 0 0 160px;
+}
 
-    .grey-box {
-      background-color: #9ab5bd;
-    }
+.rows-table .orange-line {
+  background-color: var(--color-orange);
+  height: 8px;
+}
 
-    .skill-table tbody tr td[rowspan] {
-      width: 35px;
-      border-radius: 0 0 0 160px;
-    }
+/* Utility classes */
+.skill-text {
+  font-size: 11px;
+  padding-left: 4px;
+  text-transform: uppercase;
+}
 
-    .rows-table .orange-line td {
-      background-color: #fda449;
-      height: 8px;
-    }
+.underscored {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
 
-    .rows-table tr.orange-line {
-      height: 8px;
-    }
+td.orange-box {
+  background-color: var(--color-orange);
+  font-size: 22px;
+}
 
-    .reputation-table {
-      table-layout: fixed;
-    }
+td.grey-box, .grey-box {
+  background-color: var(--color-grey);
+}
 
-    .reputation-table td:first-child {
-      border-radius: 100vmax 0 0 100vmax;
-    }
+/* Specific table styles */
+.skill-table tbody tr td[rowspan] {
+  width: 35px;
+  border-radius: 0 0 0 160px;
+}
 
-    .crew-blue {
-      background-color: #86def7;
-      width: 50px
-    }
+.rows-table .orange-line td {
+  background-color: var(--color-orange);
+  height: 8px;
+}
 
-    .weapon-red {
-      background-color: #fd7989;
-      width: 50px
-    }
+.reputation-table {
+  table-layout: fixed;
+}
 
-    .tech-purple {
-      background-color: #8a92c9;
-      width: 50px
-    }
+.reputation-table td:first-child {
+  border-radius: 100vmax 0 0 100vmax;
+}
 
-    .reputation-table img {
-      max-width: 100%;
-      max-height: 100%;
-      vertical-align: middle;
-      padding: 2px;
-    }
+/* Color classes */
+td.crew-blue { background-color: var(--color-crew); }
+td.weapon-red { background-color: var(--color-weapon); }
+td.tech-purple { background-color: var(--color-tech); }
 
-    .skill-table img {
-      max-width: 100%;
-      max-height: 100%;
-      vertical-align: middle;
-      padding: 2px;
-    }
+/* Image styles */
+.reputation-table img, .skill-table img {
+  height: 100%;
+  vertical-align: middle;
+  padding: 2px;
+}
 
-    .skill-table .orange-box img {
-      margin-left: 12px;
-    }
+.skill-table .orange-box img {
+  margin-left: 12px;
+}
 
-    .orange-box span {
-      position: absolute;
-    }
+.orange-box span {
+  position: absolute;
+}
 
-    td.talent-slot {
-      text-align: left;
-      padding-left: 1px;
-    }
+.talent-slot {
+  text-align: left;
+  padding-left: 1px;
+}
   </style>
 </head>
 
@@ -260,8 +264,8 @@
         <td>4</td>
         <td>5</td>
         <td>5</td>
-        <td class="underscored">6</td>
         <td>6</td>
+        <td class="underscored">6</td>
         <td>7</td>
         <td>7</td>
         <td>8</td>
