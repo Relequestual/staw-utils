@@ -1,0 +1,215 @@
+@font-face {
+  font-family: "Antonio";
+  src: url("./fonts/Antonio/Antonio-VariableFont_wght.ttf"), format("ttf");
+}
+
+/* Colour palette tool https://imagecolorpicker.com/en/user/shared-palette?id=ed2a1d3e-acb7-4e53-83ac-ebe5975ff303 */
+
+/* Variables */
+:root {
+--font-family: "Antonio", sans-serif;
+--font-size-base: 18px;
+--color-background: #1a202c;
+--color-text: #000000;
+--color-grey: #9ab5bd;
+--color-orange: #fda449;
+--color-crew: #86def7;
+--color-weapon: #fd7989;
+--color-tech: #8a92c9;
+--color-white: #ffffff;
+}
+
+/* Reset and base styles */
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: var(--color-background);
+color: var(--color-text);
+font-family: var(--font-family);
+font-size: var(--font-size-base);
+font-weight: bold;
+}
+
+/* Card container */
+.card-container {
+position: relative;
+width: 420px;
+height: 300px;
+background-color: var(--color-text);
+padding: 16px;
+margin: 30px;
+border-radius: 12px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Circle styling */
+.circle {
+position: absolute;
+top: 12px;
+left: 10px;
+width: 50px;
+height: 50px;
+background: var(--color-text) url("./img/faction-federation.png") no-repeat center/contain;
+border: 2px solid var(--color-grey);
+border-radius: 50%;
+box-shadow: 0 0 0 4px var(--color-text);
+}
+
+/* Name input section */
+.name-input-section {
+margin-top: 2px;
+padding-left: 12px;
+display: flex;
+width: 100%;
+}
+
+.name-label, .name-input, .name-end {
+height: 30px;
+}
+
+.name-label {
+width: 100px;
+background-color: var(--color-grey);
+display: flex;
+align-items: center;
+justify-content: flex-end;
+padding-right: 6px;
+color: var(--color-text);
+}
+
+.name-label p {
+font-size: 10px;
+line-height: 1.2;
+text-transform: uppercase;
+text-align: right;
+}
+
+.name-input {
+flex-grow: 1;
+border: 2px solid var(--color-text);
+border-top: 0;
+border-bottom: 0;
+background-color: var(--color-white);
+}
+
+.name-end {
+width: 19px;
+border-radius: 0 9999px 9999px 0;
+}
+
+/* Table styles */
+.rows-table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 1px;
+}
+
+.rows-table tr {
+height: 35px;
+}
+
+.rows-table td {
+height: 35px;
+width: 20px;
+border: 2px solid var(--color-text);
+text-align: center;
+background-color: var(--color-white);
+}
+
+.rows-table td:last-child {
+border-radius: 0 100vmax 100vmax 0;
+}
+
+/* Utility classes */
+.rows-table td.skill-text {
+font-size: 11px;
+padding-left: 4px;
+text-transform: uppercase;
+background-color: var(--color-orange);
+color: var(--color-text);
+}
+
+/* Specific table styles */
+.skill-table tbody tr td[rowspan] {
+width: 35px;
+border-radius: 0 0 0 160px;
+}
+
+.rows-table .orange-line {
+background-color: var(--color-orange);
+height: 8px;
+}
+
+/* Utility classes */
+.skill-text {
+font-size: 11px;
+padding-left: 4px;
+text-transform: uppercase;
+}
+
+.underscored {
+text-decoration: underline;
+text-decoration-thickness: 2px;
+text-underline-offset: 3px;
+}
+
+td.orange-box {
+background-color: var(--color-orange);
+font-size: 22px;
+}
+
+td.grey-box, .grey-box {
+background-color: var(--color-grey);
+}
+
+/* Specific table styles */
+.skill-table tbody tr td[rowspan] {
+width: 35px;
+border-radius: 0 0 0 160px;
+}
+
+.rows-table .orange-line td {
+background-color: var(--color-orange);
+height: 8px;
+}
+
+.reputation-table {
+table-layout: fixed;
+}
+
+.reputation-table td:first-child {
+border-radius: 100vmax 0 0 100vmax;
+}
+
+/* Color classes */
+td.crew-blue { background-color: var(--color-crew); }
+td.weapon-red { background-color: var(--color-weapon); }
+td.tech-purple { background-color: var(--color-tech); }
+
+/* Image styles */
+.reputation-table img, .skill-table img {
+height: 100%;
+vertical-align: middle;
+padding: 2px;
+}
+
+.skill-table .orange-box img {
+margin-left: 12px;
+}
+
+.orange-box span {
+position: absolute;
+}
+
+td.talent-slot {
+text-align: left;
+padding-left: 1px;
+}
