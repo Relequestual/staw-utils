@@ -1,10 +1,23 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  telemetry: {
+    // enabled: true
+  },
+  devtools: { enabled: false },
+  pages: false,
   modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/eslint-module',
-    '@nuxt/content',
+    // '@nuxtjs/tailwindcss',
+    // '@nuxt/eslint',
+    // '@nuxt/content',
     '@vite-pwa/nuxt',
   ],
+  experimental: {
+    watcher: 'poll'
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+    hot: true
+  },
+  compatibilityDate: '2024-10-29',
 });
