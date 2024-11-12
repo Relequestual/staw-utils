@@ -213,3 +213,9 @@ td.talent-slot {
 text-align: left;
 padding-left: 1px;
 }
+
+.scribbled {
+  background-image: url("/img/scribble.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

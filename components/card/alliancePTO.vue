@@ -1,4 +1,38 @@
-<script>
+<script setup>
+
+import { globalState } from '../../states/global.js';
+
+const gs = globalState;
+
+const scribbleImg = '/img/scribble';
+
+// Get the value of a specific boolean
+const getReputationSlot = (index) => {
+  return (gs.reputationSlots & (1 << index)) !== 0;
+};
+
+// Set the value of a specific boolean
+const setReputationSlot = (index, value) => {
+  if (value) {
+    gs.reputationSlots |= (1 << index);
+  } else {
+    gs.reputationSlots &= ~(1 << index);
+  }
+};
+
+const hasRepSlotA = computed(() => {
+  // Create a mask with the first 3 bits set to 1
+  const mask = 0b111;
+  return (gs.reputationSlots & mask) !== 0;
+});
+
+const hasRepSlotB = computed(() => {
+  // Create a mask with the last 3 bits set to 1
+  const mask = 0b111000;
+  return (gs.reputationSlots & mask) !== 0;
+});
+
+
 </script>
 
 <template>
@@ -60,7 +94,9 @@
       <tr>
         <td class="grey-box" />
         <td colspan="6">
-          + <img src="/img/upgrade_crew_transparent.png">/
+          + <img v-if="!hasRepSlotA && !getReputationSlot(0)" @click="setReputationSlot(0,!getReputationSlot(0))"
+            src="/img/upgrade_crew_transparent.png">
+          <img v-else @click="setReputationSlot(0,!getReputationSlot(0))" src="/img/scribble.svg">/
           <img src="/img/upgrade_weapon_transparent.png">/
           <img src="/img/upgrade_tech_transparent.png">
         </td>

@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   telemetry: {
     // enabled: true
   },
-  devtools: { enabled: false },
+  devtools: { enabled: true },
   pages: false,
   modules: [
     // '@nuxtjs/tailwindcss',
@@ -12,12 +12,12 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   experimental: {
-    watcher: 'poll'
+    watcher: 'poll',
   },
   server: {
     host: '0.0.0.0',
     port: 3000,
-    hot: true
+    hot: true,
   },
   compatibilityDate: '2024-10-29',
 });
