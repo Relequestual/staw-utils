@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   telemetry: {
     // enabled: true
   },
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   pages: false,
   modules: [
     // '@nuxtjs/tailwindcss',

@@ -195,10 +195,16 @@ td.weapon-red { background-color: var(--color-weapon); }
 td.tech-purple { background-color: var(--color-tech); }
 
 /* Image styles */
+.skill-table .reputationSlots div {
+  height: 100%;
+  display: inline;
+}
+
 .reputation-table img, .skill-table img {
-height: 100%;
 vertical-align: middle;
+height: 100%;
 padding: 2px;
+max-width: 32px;
 }
 
 .skill-table .orange-box img {
@@ -218,4 +224,14 @@ padding-left: 1px;
   background-image: url("/img/scribble.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.section-disabled {
+  background-color: #e5e5f7;
+  opacity: 0.9;
+  background: repeating-linear-gradient( -45deg, var(--color-orange), var(--color-orange) 1px, var(--color-white) 1px, var(--color-white) 5px );
 }
