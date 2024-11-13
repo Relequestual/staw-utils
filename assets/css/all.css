@@ -135,12 +135,12 @@ padding-left: 4px;
 text-transform: uppercase;
 background-color: var(--color-orange);
 color: var(--color-text);
+border-radius: 0 0 0 160px;
 }
 
 /* Specific table styles */
 .skill-table tbody tr td[rowspan] {
 width: 35px;
-border-radius: 0 0 0 160px;
 }
 
 .rows-table .orange-line {
