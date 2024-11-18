@@ -1,10 +1,20 @@
 <script setup>
 
-import { globalState, captainSkillNumbers, reputationSlotURLs } from '../../states/global.js';
+import { globalState, captainSkillNumbers } from '../../states/global.js';
+const config = useRuntimeConfig();
 
 const gs = globalState;
 
-const scribbleImg = '/img/scribble';
+const baseURL = config.app.baseURL;
+const scribbleImageURL = `${baseURL}img/scribble.svg`;
+
+const reputationImageURL = (type) =>
+  `${baseURL}img/upgrade_${type}_transparent.png`;
+
+const reputationSlotURLs = ['crew', 'weapon', 'tech'].reduce(
+  (acc, cur) => Object.assign(acc, { [cur]: reputationImageURL(cur) }),
+  {},
+);
 
 const setState = (key, value) => {
   gs[key] = value;
@@ -40,14 +50,12 @@ const hasRepSlotB = computed(() => {
   return (gs.reputationSlots & mask) !== 0;
 });
 
-const scribbleImageURL = '/img/scribble.svg';
-
 </script>
 
 <template>
   <div class="card-container">
     <!-- Black circle with grey border -->
-    <div class="circle" />
+    <div class="fed-circle" :style="{'background-image': `url(${baseURL}img/faction-federation.png)`}" />
 
     <!-- Name Input Section -->
     <div class="name-input-section">

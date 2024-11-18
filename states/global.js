@@ -36,11 +36,4 @@ const captainSkillNumbers = [
   9,
 ];
 
-const reputationImageURL = (type) => `/img/upgrade_${type}_transparent.png`;
-
-const reputationSlotURLs = ['crew', 'weapon', 'tech'].reduce(
-  (acc, cur) => Object.assign(acc, { [cur]: reputationImageURL(cur) }),
-  {},
-);
-
-export { globalState, reputationSlotURLs, captainSkillNumbers };
+export { globalState, captainSkillNumbers };
