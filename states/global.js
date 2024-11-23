@@ -10,12 +10,12 @@ const globalState = reactive({
     f: false,
     g: false,
   },
-  captainSkill: 0,
   // This number stores 6 boolean values. Check the bit at the index to find the boolean value.
   reputationSlots: 0,
-  crewReputation: 0,
-  weaponReputation: 0,
-  techReputation: 0,
+  captainSkill: [].fill(false, 0, 14),
+  crewReputation: [].fill(false, 0, 10),
+  weaponReputation: [].fill(false, 0, 10),
+  techReputation: [].fill(false, 0, 10),
 });
 
 const captainSkillNumbers = [

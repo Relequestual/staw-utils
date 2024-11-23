@@ -16,8 +16,17 @@ const reputationSlotURLs = ['crew', 'weapon', 'tech'].reduce(
   {},
 );
 
-const setState = (key, value) => {
-  gs[key] = value;
+const toggleState = (type, index) => {
+  if (type === 'captainSkill') {
+    if (index === 14) {
+      return;
+    }
+  } else { // All the others are the same
+    if (index === 10) {
+      return;
+    }
+  }
+  gs[type][index] = !(gs[type].at(index));
 };
 
 const setTalentState = (slot, value) => {
@@ -93,12 +102,12 @@ const hasRepSlotB = computed(() => {
 
       <!-- Middle row -->
       <tr>
-        <td v-for="(num, index) in captainSkillNumbers" @click="setState('captainSkill', index)" :class="[
+        <td v-for="(num, index) in captainSkillNumbers" @click="toggleState('captainSkill', index)" :class="[
             'clickable',
             typeof num === 'object' ? 'underscored' : '',
             num === 9 ? 'orange-box' : ''
             ]">
-          <div v-if="index < gs.captainSkill"><img :src="scribbleImageURL" /></div>
+          <div v-if="gs.captainSkill[index] === true"><img :src="scribbleImageURL" /></div>
           <div v-else>{{ typeof num === 'object' ? Object.keys(num)[0] : num }}</div>
         </td>
       </tr>
@@ -135,8 +144,8 @@ const hasRepSlotB = computed(() => {
           <img src="/img/upgrade_crew_transparent.png">
         </td>
         <td v-for="(item,i) in Array(11)" :class="[i === 10 ? 'crew-blue' : '', 'clickable']"
-          @click="setState('crewReputation', i)">
-          <div v-if="i < gs.crewReputation"><img :src="scribbleImageURL" /></div>
+          @click="toggleState('crewReputation', i)">
+          <div v-if="gs.crewReputation[i] === true"><img :src="scribbleImageURL" /></div>
           <div v-else>{{ i }}</div>
         </td>
       </tr>
@@ -145,8 +154,8 @@ const hasRepSlotB = computed(() => {
           <img src="/img/upgrade_weapon_transparent.png">
         </td>
         <td v-for="(item,i) in Array(11)" :class="[i === 10 ? 'weapon-red' : '', 'clickable']"
-          @click="setState('weaponReputation', i)">
-          <div v-if="i < gs.weaponReputation"><img :src="scribbleImageURL" /></div>
+          @click="toggleState('weaponReputation', i)">
+          <div v-if="gs.weaponReputation[i] === true"><img :src="scribbleImageURL" /></div>
           <div v-else>{{ i }}</div>
         </td>
       </tr>
@@ -155,8 +164,8 @@ const hasRepSlotB = computed(() => {
           <img src="/img/upgrade_tech_transparent.png">
         </td>
         <td v-for="(item,i) in Array(11)" :class="[i === 10 ? 'tech-purple' : '', 'clickable']"
-          @click="setState('techReputation', i)">
-          <div v-if="i < gs.techReputation"><img :src="scribbleImageURL" /></div>
+          @click="toggleState('techReputation', i)">
+          <div v-if="gs.techReputation[i] === true"><img :src="scribbleImageURL" /></div>
           <div v-else>{{ i }}</div>
         </td>
       </tr>
