@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { reactive, computed } from 'vue';
 
 const globalState = reactive({
   captainName: '',
@@ -16,6 +16,14 @@ const globalState = reactive({
   crewReputation: [].fill(false, 0, 10),
   weaponReputation: [].fill(false, 0, 10),
   techReputation: [].fill(false, 0, 10),
+});
+
+const xpSpent = computed(() => {
+  return globalState.captainSkill
+    .concat(globalState.crewReputation)
+    .concat(globalState.weaponReputation)
+    .concat(globalState.techReputation)
+    .filter((value) => value === true).length;
 });
 
 const captainSkillNumbers = [
@@ -36,4 +44,4 @@ const captainSkillNumbers = [
   9,
 ];
 
-export { globalState, captainSkillNumbers };
+export { globalState, captainSkillNumbers, xpSpent };

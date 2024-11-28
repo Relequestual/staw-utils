@@ -71,6 +71,10 @@ display: flex;
 width: 100%;
 }
 
+.name-end p {
+  margin-top: 3px;
+}
+
 .name-label, .name-input, .name-end {
 height: 30px;
 }
@@ -83,6 +87,10 @@ align-items: center;
 justify-content: flex-end;
 padding-right: 6px;
 color: var(--color-text);
+}
+
+.name-label.xp {
+  width: 50px;
 }
 
 .name-label p {
@@ -101,7 +109,8 @@ background-color: var(--color-white);
 }
 
 .name-end {
-width: 19px;
+padding-top: 4px;
+width: 24px;
 border-radius: 0 9999px 9999px 0;
 }
 

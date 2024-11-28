@@ -1,6 +1,6 @@
 <script setup>
 
-import { globalState, captainSkillNumbers } from '../../states/global.js';
+import { globalState, captainSkillNumbers, xpSpent } from '../../states/global.js';
 const config = useRuntimeConfig();
 
 const gs = globalState;
@@ -72,7 +72,12 @@ const hasRepSlotB = computed(() => {
         <p>captain<br>name</p>
       </div>
       <input type="text" class="name-input">
-      <div class="name-end grey-box" />
+      <div class="name-label xp">
+        <p>XP<br>spent</p>
+      </div>
+      <div class="name-end grey-box">
+        <p>{{ xpSpent }}</p>
+      </div>
     </div>
 
     <!-- Rows as a table -->
