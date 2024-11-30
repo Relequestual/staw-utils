@@ -23,6 +23,7 @@ const xpSpent = computed(() => {
     .concat(globalState.crewReputation)
     .concat(globalState.weaponReputation)
     .concat(globalState.techReputation)
+    .concat(Object.values(globalState.talentSlots))
     .filter((value) => value === true).length;
 });
 
