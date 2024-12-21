@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Antonio";
-  src: url("./fonts/Antonio/Antonio-VariableFont_wght.ttf"), format("ttf");
+  src: url("/fonts/Antonio/Antonio-VariableFont_wght.ttf"), format("ttf");
 }
 
 /* Colour palette tool https://imagecolorpicker.com/en/user/shared-palette?id=ed2a1d3e-acb7-4e53-83ac-ebe5975ff303 */
@@ -69,10 +69,6 @@ margin-top: 2px;
 padding-left: 12px;
 display: flex;
 width: 100%;
-}
-
-.name-end p {
-  margin-top: 3px;
 }
 
 .name-label, .name-input, .name-end {
