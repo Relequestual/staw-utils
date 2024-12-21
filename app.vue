@@ -1,14 +1,7 @@
-<script>
-import '~/assets/css/all.css';
-
-</script>
-
 <template>
   <div>
-    <CardAlliancePTO />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
-
-<style>
-@import url('~/assets/css/all.css');
-</style>
