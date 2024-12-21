@@ -5,10 +5,11 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: false },
   pages: false,
+  ssr: false,
   modules: [
     // '@nuxtjs/tailwindcss',
     // '@nuxt/eslint',
-    // '@nuxt/content',
+    '@nuxt/content',
     '@vite-pwa/nuxt',
   ],
   experimental: {
@@ -19,5 +20,9 @@ export default defineNuxtConfig({
     port: 3000,
     hot: true,
   },
+  // routeRules: {
+
+  // },
+  pages: true,
   compatibilityDate: '2024-10-29',
 });
