@@ -1,6 +1,7 @@
 import { reactive, computed } from 'vue';
 
 const globalState = reactive({
+  dataVersion: '0.0.1',
   captainName: '',
   talentSlots: {
     a: false,
